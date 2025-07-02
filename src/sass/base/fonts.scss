@@ -1,0 +1,21 @@
+$title-font: "Rum Raisin";
+$body-font: "Figtree";
+$mono-font: "Red Hat Mono";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $title-font;
+}
+
+p {
+    font-family: $body-font;
+}
+
+li>a {
+    letter-spacing: -0.02rem;
+    font-family: $mono-font;
+}
