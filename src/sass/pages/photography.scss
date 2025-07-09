@@ -1,0 +1,192 @@
+@use "../variables/" as *;
+
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+        font-size: 3.5rem;
+        color: $primary;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: lighten($primary, 20%);
+        font-style: italic;
+        @include typewriter-text;
+        margin: 0 auto;
+        max-width: fit-content;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            max-width: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+.content-section {
+    p {
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: $primary;
+    }
+}
+
+.philosophy-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .philosophy-card {
+        background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+        padding: 2rem;
+        border-left: 4px solid $accent;
+        text-align: center;
+
+        p {
+            margin-bottom: 1rem;
+            font-style: italic;
+
+            &:first-child {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: $primary;
+            }
+        }
+    }
+}
+
+.services-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: rgba($primary, 0.03);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba($primary, 0.1);
+    transition: all 0.3s ease;
+
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(2);
+
+    &:hover {
+        @include realistic-shadow(4);
+        border-color: rgba($primary, 0.2);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: $primary;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    p {
+        margin: 0;
+        color: lighten($primary, 10%);
+    }
+}
+
+.experience-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.experience-cards {
+    display: grid;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: rgba($accent, 0.05);
+    padding: 2rem;
+    border-left: 4px solid $primary;
+    @include paper-texture;
+    @include paper-crease('light');
+
+    h3 {
+        color: $primary;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .role {
+        color: lighten($primary, 20%);
+        font-style: italic;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &:before {
+            content: '📷';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+    }
+}
+
+.cta-section {
+    margin: 3rem 0;
+    text-align: center;
+    background: rgba($primary, 0.05);
+    padding: 2rem;
+    @include paper-texture;
+    @include ink-smudge;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin: 0;
+        font-style: italic;
+        color: lighten($primary, 20%);
+    }
+}

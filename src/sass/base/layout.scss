@@ -1,0 +1,98 @@
+@use "../variables/" as *;
+
+// Shared page layout
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: $page-padding;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: $header-gap;
+
+    h1 {
+        font-size: 3.5rem;
+        color: $primary;
+        margin-bottom: $spacing-xs;
+        
+        @media (max-width: $tablet) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: lighten($primary, 20%);
+        font-style: italic;
+        @include typewriter-text;
+        margin: 0 auto;
+        max-width: fit-content;
+        
+        @media (max-width: $tablet) {
+            font-size: 1rem;
+            max-width: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+.content-section {
+    p {
+        line-height: 1.6;
+        margin-bottom: $content-gap;
+        color: $primary;
+    }
+}
+
+// Shared section styles
+.section {
+    margin: $section-gap 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: $content-gap;
+        text-align: center;
+    }
+}
+
+// Shared grid layouts
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $content-gap;
+
+    @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-md;
+}
+
+// Shared card styles
+.card {
+    background: rgba($primary, 0.03);
+    padding: $content-gap;
+    border: 1px solid rgba($primary, 0.1);
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(2);
+    
+    &:hover {
+        @include realistic-shadow(4);
+    }
+    
+    h3 {
+        color: $primary;
+        margin-bottom: $spacing-sm;
+        font-size: 1.2rem;
+    }
+    
+    p {
+        margin: 0;
+        color: lighten($primary, 10%);
+    }
+}

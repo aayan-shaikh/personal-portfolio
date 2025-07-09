@@ -1,0 +1,58 @@
+@use "../variables/" as *;
+
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $spacing-sm;
+    margin: $content-gap 0;
+}
+
+.genre-card {
+    padding: $spacing-sm;
+    text-align: center;
+    border: 1px solid rgba($primary, 0.2);
+    font-weight: 600;
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(1);
+    
+    &:hover {
+        @include realistic-shadow(3);
+    }
+}
+
+.highlight-card {
+    border-left: 4px solid $accent;
+    @include paper-crease('medium');
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: $spacing-xs 0;
+        border-bottom: 1px solid rgba($primary, 0.1);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: $spacing-sm;
+}
+
+.closing-note {
+    font-style: italic;
+    text-align: center;
+    color: lighten($primary, 20%);
+    margin-top: $section-gap;
+    padding: $spacing-md;
+    background: rgba($accent, 0.05);
+    @include paper-texture;
+    @include ink-smudge;
+    @include torn-edge('top');
+}

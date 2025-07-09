@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description?: string;
+}
+
+const { title, subtitle, description } = Astro.props;
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <meta charset="UTF-8" />
+    {description && <meta name="description" content={description} />}
+  </Fragment>
+  
+  <div class="page-container">
+    <header class="page-header">
+      <h1>{title}</h1>
+      <p class="page-subtitle">{subtitle}</p>
+    </header>
+
+    <div class="content-section">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

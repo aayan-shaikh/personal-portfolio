@@ -4,33 +4,36 @@
 @use 'variables' as *;
 
 body {
-    border: 1.5rem solid $accent;
-
+    border: 1rem solid $accent;
     background: $accent;
+}
+
+a {
+    color: inherit;
 
 
+
+
+    &:hover {
+        font-style: italic;
+    }
 }
 
 .outline-wrapper {
-
     border: 1px solid $primary;
     background: $secondary;
-    padding: 0rem 0rem 4rem 0rem;
+    padding: 0 0 4rem 0;
 
-    a {
-        color: $secondary;
-        text-decoration: none;
+}
 
+.nav-link {
+    color: $secondary;
+    text-decoration: none;
 
-        &:hover,
-        &:focus {
-            text-decoration: underline;
-        }
+    &:hover,
+    &:focus {
+        text-decoration: underline;
     }
-
-
-
-
 }
 
 // NAV
@@ -38,10 +41,10 @@ nav {
     min-height: 60px;
     background-color: $primary;
     display: flex;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
-    justify-content: space-between;
-    padding-inline: 2rem;
+    justify-content: start;
+    padding: 1rem 1.5rem 1rem;
 
     ul {
         padding: 0;
@@ -53,16 +56,23 @@ nav {
 
     li {
         list-style: none;
-    }
+        font-size: 14px;
 
-    @media (min-width: 600px) {}
+        &:hover,
+        .active {
+            font-style: italic;
+            text-decoration: underline;
+
+        }
+    }
 }
 
 .nav-title {
     font-family: $title-font;
     font-size: 2rem;
     min-width: fit-content;
-    justify-content: start;
-
+    text-align: left;
     display: inline;
+    text-decoration: none;
+    color: $secondary;
 }

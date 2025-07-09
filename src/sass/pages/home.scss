@@ -1,0 +1,264 @@
+@use "../variables/" as *;
+@use "../base/" as *;
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
+    font-size: 4rem;
+    color: $primary;
+    margin-bottom: 1rem;
+    font-family: $title-font;
+    font-weight: 700;
+    animation: slideInDown 0.6s ease-out;
+}
+
+.hero-roles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+
+}
+
+.role {
+    font-family: 'Red Hat Mono', monospace;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba($primary, 0.2);
+    background: rgba($primary, 0.05);
+    color: lighten($primary, 20%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    @include paper-texture;
+    text-align: center;
+
+    &.active {
+        background: rgba($primary, 0.1);
+        color: $primary;
+        font-weight: 600;
+        @include realistic-shadow(2);
+        transform: translateY(-2px);
+    }
+
+    &:hover {
+        @include realistic-shadow(1);
+        transform: translateY(-1px);
+        background: rgba($primary, 0.08);
+    }
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: lighten($primary, 30%);
+    font-style: italic;
+    @include typewriter-text;
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.hero-card {
+    background: rgba($primary, 0.03);
+    border: 1px solid rgba($primary, 0.1);
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    color: $primary;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(2);
+    animation: cardSlideIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+
+    &:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    &:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    &:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    &:hover {
+        text-decoration: none;
+        @include realistic-shadow(6);
+        transform: translateY(-8px) rotate(1deg);
+
+        .card-hover {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+    }
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hero-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $primary;
+}
+
+.hero-card p {
+    color: lighten($primary, 20%);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.card-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba($primary, 0.9), transparent);
+    color: white;
+    padding: 1rem;
+    font-family: 'Red Hat Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.resume-card {
+    background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+    border-color: rgba($accent, 0.3);
+    order: -1;
+
+    .card-icon {
+        color: $accent;
+    }
+}
+
+.hero-footer {
+    text-align: center;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.footer-text {
+    font-style: italic;
+    color: lighten($primary, 40%);
+    font-size: 0.9rem;
+    @include ink-smudge;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .role {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-roles {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+}

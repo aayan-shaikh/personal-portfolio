@@ -1,0 +1,241 @@
+@use "../variables/" as *;
+
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    // margin-bottom: 3rem;
+
+    h1 {
+        font-size: 3.5rem;
+        margin-right: auto;
+        color: $primary;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: lighten($primary, 20%);
+        font-style: italic;
+        @include typewriter-text;
+        margin: 0 auto;
+        max-width: fit-content;
+    }
+}
+
+.content-section {
+    p {
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: $primary;
+    }
+}
+
+.styles-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.style-card {
+    background: rgba($primary, 0.03);
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, $accent, $primary);
+    }
+
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(2);
+
+    &:hover {
+        @include realistic-shadow(5);
+        border-color: rgba($primary, 0.2);
+    }
+
+    .style-emoji {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: $primary;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    p {
+        margin: 0;
+        color: lighten($primary, 20%);
+        font-style: italic;
+    }
+}
+
+.achievement-section {
+    margin: 4rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.achievement-card {
+    background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+    padding: 3rem;
+    text-align: center;
+    border: 2px solid rgba($accent, 0.3);
+    position: relative;
+    @include paper-texture;
+    @include paper-crease('heavy');
+    @include realistic-shadow(3);
+
+    .trophy {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    h3 {
+        color: $primary;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .competition {
+        font-size: 1.2rem;
+        color: $primary;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .quote {
+        font-style: italic;
+        color: lighten($primary, 20%);
+        margin: 0;
+    }
+}
+
+.philosophy-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.philosophy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.philosophy-card {
+    background: rgba($accent, 0.05);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba($primary, 0.1);
+    transition: all 0.3s ease;
+
+    @include paper-card($curl: true, $fold: true, $bleed: false, $texture: true);
+    @include realistic-shadow(2);
+
+    &:hover {
+        @include realistic-shadow(4);
+    }
+
+    .emoji {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin: 0;
+        font-weight: 500;
+        color: $primary;
+    }
+}
+
+.availability-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.availability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.availability-item {
+    background: rgba($primary, 0.05);
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba($primary, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba($primary, 0.1);
+        transform: scale(1.05);
+    }
+
+    .icon {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin: 0;
+        font-weight: 500;
+        color: $primary;
+    }
+}
+
+.closing-note {
+    font-style: italic;
+    text-align: center;
+    color: lighten($primary, 20%);
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba($accent, 0.05);
+    border-left: 4px solid $accent;
+    @include paper-texture;
+    @include ink-smudge;
+    @include torn-edge('bottom');
+}

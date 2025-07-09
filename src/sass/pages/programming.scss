@@ -1,0 +1,262 @@
+@use "../variables/" as *;
+
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+        font-size: 3.5rem;
+        color: $primary;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: lighten($primary, 20%);
+        font-style: italic;
+        @include typewriter-text;
+        margin: 0 auto;
+        max-width: fit-content;
+    }
+}
+
+.content-section {
+    p {
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: $primary;
+    }
+}
+
+.skills-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: rgba($primary, 0.03);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba($primary, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(2);
+
+    &:hover {
+        @include realistic-shadow(4);
+        border-color: rgba($primary, 0.2);
+    }
+
+    .skill-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: $primary;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    p {
+        margin: 0;
+        color: lighten($primary, 10%);
+        font-style: italic;
+        font-size: 0.9rem;
+    }
+}
+
+.experience-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.experience-timeline {
+    position: relative;
+}
+
+.experience-item {
+    display: flex;
+    gap: 2rem;
+    background: rgba($accent, 0.05);
+    padding: 2rem;
+    border-left: 4px solid $primary;
+
+    .company-logo {
+        font-size: 3rem;
+        flex-shrink: 0;
+    }
+
+    .experience-content {
+        flex: 1;
+
+        h3 {
+            color: $primary;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .role {
+            color: lighten($primary, 20%);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .duration {
+            color: lighten($primary, 30%);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            
+            &:before {
+                content: '▸';
+                position: absolute;
+                left: 0;
+                color: $primary;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.research-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.research-card {
+    background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+    padding: 2rem;
+    border: 1px solid rgba($primary, 0.1);
+    transition: all 0.3s ease;
+
+    @include paper-card($curl: true, $fold: false, $bleed: false, $texture: true);
+    @include realistic-shadow(2);
+
+    &:hover {
+        @include realistic-shadow(4);
+    }
+
+    .research-icon {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: $primary;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .publication {
+        color: lighten($primary, 20%);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .description {
+        margin: 0;
+        color: lighten($primary, 10%);
+        font-style: italic;
+    }
+}
+
+.philosophy-section {
+    margin: 3rem 0;
+
+    h2 {
+        color: $primary;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .philosophy-card {
+        background: rgba($primary, 0.05);
+        padding: 2rem;
+        border-left: 4px solid $accent;
+
+        p {
+            margin-bottom: 1rem;
+            font-style: italic;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+            &:first-child {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: $primary;
+            }
+        }
+    }
+}
+
+.cta-section {
+    margin: 3rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.1));
+    padding: 3rem 2rem;
+    border: 2px solid rgba($primary, 0.1);
+
+    h2 {
+        color: $primary;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin: 0;
+        font-style: italic;
+        color: lighten($primary, 20%);
+        font-size: 1.1rem;
+    }
+}

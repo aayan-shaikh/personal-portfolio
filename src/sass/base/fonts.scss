@@ -9,13 +9,17 @@ h4,
 h5,
 h6 {
     font-family: $title-font;
+    font-size: 44px;
 }
 
 p {
     font-family: $body-font;
+    font-size: 16px;
 }
 
-li>a {
+a {
     letter-spacing: -0.02rem;
+    font-size: 14px;
+
     font-family: $mono-font;
 }

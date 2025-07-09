@@ -1,7 +1,150 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../sass/pages/home.scss";
 ---
 
 <BaseLayout>
-    <h1>Hello</h1>
+    <div class="hero-section">
+        <div class="hero-intro">
+            <!-- <h1 class="hero-title">Aayan Shaikh</h1> -->
+            <!-- <div class="hero-roles">
+                <span class="role active" data-role="corporate">Corporate</span>
+                <span class="role" data-role="developer">Developer</span>
+                <span class="role" data-role="dj">DJ</span>
+                <span class="role" data-role="photographer">Photographer</span>
+            </div> -->
+            <p class="hero-tagline">Multi-passionate creative from Pune</p>
+        </div>
+
+        <div class="hero-grid">
+            <a
+                class="hero-card resume-card"
+                href="/resume"
+                data-category="corporate"
+            >
+                <div class="card-icon">📄</div>
+                <h3>Corporate Resume</h3>
+                <p>Professional experience & achievements</p>
+                <div class="card-hover">View Resume →</div>
+            </a>
+
+            <a class="hero-card" href="/programming" data-category="tech">
+                <div class="card-icon">💻</div>
+                <h3>Programming</h3>
+                <p>Building digital solutions</p>
+                <div class="card-hover">View Projects →</div>
+            </a>
+
+            <a class="hero-card" href="/dj" data-category="music">
+                <div class="card-icon">🎧</div>
+                <h3>DJ Work</h3>
+                <p>Beats that move crowds</p>
+                <div class="card-hover">Explore Music →</div>
+            </a>
+
+            <a class="hero-card" href="/photography" data-category="visual">
+                <div class="card-icon">📸</div>
+                <h3>Photography</h3>
+                <p>Capturing moments in time</p>
+                <div class="card-hover">View Portfolio →</div>
+            </a>
+        </div>
+
+        <div class="hero-footer">
+            <p class="footer-text">
+                Click anywhere to dive into the multiverse
+            </p>
+        </div>
+    </div>
 </BaseLayout>
+
+<script>
+    class HeroInteractions {
+        constructor() {
+            this.roles = document.querySelectorAll(".role");
+            this.cards = document.querySelectorAll(".hero-card");
+            this.currentRoleIndex = 0;
+            this.init();
+        }
+
+        init() {
+            // Auto-rotate roles every 2 seconds
+            setInterval(() => this.rotateRoles(), 500);
+
+            // Manual role switching
+            this.roles.forEach((role, index) => {
+                role.addEventListener("click", () => {
+                    this.setActiveRole(index);
+                    this.highlightRelatedCard(role.dataset.role);
+                });
+            });
+
+            // Card hover effects
+            this.cards.forEach((card) => {
+                card.addEventListener("mouseenter", () => {
+                    this.dimOtherCards(card);
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    this.resetCardOpacity();
+                });
+            });
+        }
+
+        rotateRoles() {
+            this.currentRoleIndex =
+                (this.currentRoleIndex + 1) % this.roles.length;
+            this.setActiveRole(this.currentRoleIndex);
+        }
+
+        setActiveRole(index) {
+            this.roles.forEach((role) => role.classList.remove("active"));
+            this.roles[index].classList.add("active");
+            this.currentRoleIndex = index;
+        }
+
+        highlightRelatedCard(roleType) {
+            const roleCardMap = {
+                corporate: "corporate",
+                developer: "tech",
+                dj: "music",
+                photographer: "visual",
+            };
+
+            const targetCategory = roleCardMap[roleType];
+            if (targetCategory) {
+                const targetCard = document.querySelector(
+                    `[data-category="${targetCategory}"]`,
+                );
+                if (targetCard) {
+                    targetCard.style.transform =
+                        "translateY(-12px) rotate(2deg)";
+                    setTimeout(() => {
+                        targetCard.style.transform = "";
+                    }, 600);
+                }
+            }
+        }
+
+        dimOtherCards(activeCard) {
+            this.cards.forEach((card) => {
+                if (card !== activeCard) {
+                    card.style.opacity = "0.6";
+                    card.style.transform = "scale(0.98)";
+                }
+            });
+        }
+
+        resetCardOpacity() {
+            this.cards.forEach((card) => {
+                card.style.opacity = "1";
+                card.style.transform = "";
+            });
+        }
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener("DOMContentLoaded", () => {
+        new HeroInteractions();
+    });
+</script>

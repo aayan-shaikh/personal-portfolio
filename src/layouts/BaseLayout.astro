@@ -1,15 +1,20 @@
 ---
 import "../sass/index.scss";
 const navLinks = [
-    { name: "DJ", link: "/" },
-    { name: "Photographer", link: "/" },
-    { name: "Dancer", link: "/" },
-    { name: "Programmer", link: "/" },
+    { name: "Home", link: "/" },
+    { name: "DJ", link: "/dj" },
+    { name: "Photography", link: "/photography" },
+    { name: "Dance", link: "/dance" },
+    { name: "Programming", link: "/programming" },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +24,7 @@ const navLinks = [
         />
         <!-- FONTS END -->
         <title>Aayan's Portfolio</title>
+        <slot name="head" />
     </head>
     <body>
         <div class="outline-wrapper">
@@ -28,7 +34,10 @@ const navLinks = [
                     {
                         navLinks.map((link) => (
                             <li>
-                                <a class="" href={link.link}>
+                                <a
+                                    class={`nav-link ${currentPath === link.link ? "active" : ""}`}
+                                    href={link.link}
+                                >
                                     {link.name}
                                 </a>
                             </li>
@@ -40,6 +49,7 @@ const navLinks = [
                 <slot />
             </main>
         </div>
-        <footer>Footer</footer>
+
+        <script></script>
     </body>
 </html>

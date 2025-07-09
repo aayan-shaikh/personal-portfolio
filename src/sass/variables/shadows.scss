@@ -1,0 +1,27 @@
+@use "colours" as *;
+
+// Realistic shadow system based on natural light physics
+// Light source positioned top-left at 45° angle
+
+@mixin realistic-shadow($elevation: 2) {
+  $blur: $elevation * 2px;
+  $spread: -($elevation * 0.5px);
+  $y-offset: $elevation * 1px;
+  $x-offset: $elevation * 0.5px;
+  
+  box-shadow: 
+    // Ambient shadow (soft, wide)
+    0 #{$y-offset * 2} #{$blur * 2} #{$spread} rgba(0, 0, 0, 0.08),
+    // Direct shadow (sharp, directional)
+    #{$x-offset} #{$y-offset} #{$blur} #{$spread * 0.5} rgba(0, 0, 0, 0.12);
+}
+
+@mixin hover-lift($from-elevation: 2, $to-elevation: 8) {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  @include realistic-shadow($from-elevation);
+  
+  &:hover {
+    transform: translateY(-#{($to-elevation - $from-elevation) * 0.5px});
+    @include realistic-shadow($to-elevation);
+  }
+}
