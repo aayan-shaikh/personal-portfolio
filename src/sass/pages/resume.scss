@@ -4,7 +4,32 @@ $neon1: lighten($primary, 10%); // muted cyan-blue
 $neon2: lighten($primary, 20%); // deeper teal
 $neon3: $primary; // dark teal-blue
 
+.header-title::after {
+    content: " Print Me! (Cmd/Ctrl + P)";
+    display: block;
+    font-size: 1rem;
+    vertical-align: center;
+    position: relative;
+    color: #c7c7c7;
+    font-family: "red hat mono";
+    font-weight: 400;
+    margin-top: 0.5rem;
 
+}
+
+.printme {
+    font-family: 'Red Hat Mono';
+    vertical-align: center;
+    margin-top: -20px;
+
+    color: lightgrey;
+
+    &::after {
+        content: " (Cmd/Ctrl + P)";
+        font-weight: 300;
+        font-size: 1rem;
+    }
+}
 
 body {
     font-family: "Inter", sans-serif;
@@ -23,6 +48,10 @@ body {
     align-items: flex-start;
     padding: 2rem;
     color: #111;
+
+    @media (max-width: 767px) {
+        // padding: 0;
+    }
 }
 
 @keyframes neonBgMove {
@@ -46,6 +75,11 @@ body {
     max-width: 850px;
     width: 100%;
     padding: 5rem 3rem;
+
+    @media (max-width: 767px) {
+        padding: 2.5rem 1rem;
+
+    }
 }
 
 $mono-dark: #111;
@@ -87,13 +121,43 @@ $anim-color3: #00f0ff;
     border-image: linear-gradient(to right, black, lime) 1;
     // outline: 10px solid lime;
 
-    // text-align: center;
+    // text-align: left;
     margin-bottom: 2.5rem;
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+    }
+
+    .profile-image {
+        // flex-shrink: 0;
+
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid $primary;
+            box-shadow: 0 4px 12px rgba($primary, 0.3);
+        }
+    }
+
+    .header-text {
+        flex: 1;
+    }
 
     h1 {
         font-size: 2.6rem;
         font-weight: 700;
         color: $primary;
+        margin: 0;
     }
 
     .subtitle {
@@ -171,15 +235,16 @@ h2 {
 }
 
 .item {
-    // margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
     padding: 1.2rem;
     background: rgba(255, 255, 255, 0.05);
     border-left: 3px solid $primary;
     transition: all 0.3s ease;
+    page-break-inside: avoid;
+    break-inside: avoid;
 
     &:hover {
         background: rgba(255, 255, 255, 0.1);
-        // transform: translateX(5px);
     }
 
     .position {
@@ -445,6 +510,32 @@ section:nth-of-type(8) {
 }
 
 @media print {
+    .header-title::after {
+        display: none;
+    }
+
+    .printme,
+    .tohome {
+        display: none;
+    }
+
+    .header-content {
+        flex-direction: row !important;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .profile-image img {
+        width: 80px;
+        height: 80px;
+        border: 2px solid black !important;
+        box-shadow: none !important;
+    }
+
+    .languages {
+        padding-top: 24pt;
+    }
+
     * {
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
@@ -462,8 +553,8 @@ section:nth-of-type(8) {
     .resume-container {
         background: white !important;
         box-shadow: none !important;
-        padding: 0.5in;
-        max-width: none;
+        padding: 1in 0.5in;
+        // max-width: none;
         width: 100%;
     }
 
@@ -488,12 +579,21 @@ section:nth-of-type(8) {
 
     section {
         page-break-inside: avoid;
+        break-inside: avoid;
+
     }
 
-    section:nth-child(3),
-    section:nth-child(7) {
-        padding-top: 24pt;
+    section:nth-of-type(2) {
+        page-break-before: avoid;
+        break-before: avoid;
     }
+
+
+    ul {
+        list-style-type: lower-roman;
+
+    }
+
 
     .links {
         display: none;
@@ -522,7 +622,8 @@ section:nth-of-type(8) {
         }
 
         ul {
-            list-style-type: disc;
+            list-style-type: lower-roman;
+
         }
 
         li:before {
@@ -548,11 +649,12 @@ section:nth-of-type(8) {
     section:nth-of-type(7),
     section:nth-of-type(8) {
         background: none;
-        padding: 0;
+        padding-inline: 0;
         border: none;
 
+
         ul {
-            list-style-type: disc;
+            list-style-type: lower-roman;
             padding-left: 1.2rem;
             display: block;
             flex-wrap: nowrap;

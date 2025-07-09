@@ -7,7 +7,7 @@
 }
 
 .page-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
 
     h1 {
@@ -40,7 +40,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -53,7 +53,7 @@
 .skill-card {
     background: rgba($primary, 0.03);
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     border: 1px solid rgba($primary, 0.1);
     transition: all 0.3s ease;
     position: relative;
@@ -92,7 +92,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -161,7 +161,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -216,7 +216,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 
     .philosophy-card {
@@ -243,7 +243,7 @@
 
 .cta-section {
     margin: 3rem 0;
-    text-align: center;
+    text-align: left;
     background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.1));
     padding: 3rem 2rem;
     border: 2px solid rgba($primary, 0.1);

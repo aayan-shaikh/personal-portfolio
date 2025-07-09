@@ -7,7 +7,7 @@
 }
 
 .page-header {
-    text-align: center;
+    text-align: left;
     // margin-bottom: 3rem;
 
     h1 {
@@ -41,7 +41,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -54,7 +54,7 @@
 .style-card {
     background: rgba($primary, 0.03);
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     border: 2px solid transparent;
     transition: all 0.3s ease;
     position: relative;
@@ -103,14 +103,14 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
 .achievement-card {
     background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
     padding: 3rem;
-    text-align: center;
+    text-align: left;
     border: 2px solid rgba($accent, 0.3);
     position: relative;
     @include paper-texture;
@@ -149,7 +149,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -162,7 +162,7 @@
 .philosophy-card {
     background: rgba($accent, 0.05);
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     border: 1px solid rgba($primary, 0.1);
     transition: all 0.3s ease;
 
@@ -192,7 +192,7 @@
     h2 {
         color: $primary;
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -205,7 +205,7 @@
 .availability-item {
     background: rgba($primary, 0.05);
     padding: 1.5rem;
-    text-align: center;
+    text-align: left;
     border: 1px solid rgba($primary, 0.1);
     transition: all 0.3s ease;
 
@@ -229,7 +229,7 @@
 
 .closing-note {
     font-style: italic;
-    text-align: center;
+    text-align: left;
     color: lighten($primary, 20%);
     margin-top: 3rem;
     padding: 2rem;

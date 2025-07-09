@@ -156,15 +156,16 @@ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: hidden;
   white-space: nowrap;
   width: 0;
+  font-weight: 500;
+  color: $primary;
 
   font-style: normal;
-  margin-right: auto;
   text-align: left;
 
   animation: typewriter 1s steps(40) 1s both, blink 1s infinite 4s;
 
   &::after {
-    content: '_';
+    content: '';
     animation: blink 1s infinite;
   }
 }

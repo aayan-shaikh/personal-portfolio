@@ -14,7 +14,7 @@
     font-weight: 600;
     @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
     @include realistic-shadow(1);
-    
+
     &:hover {
         @include realistic-shadow(3);
     }

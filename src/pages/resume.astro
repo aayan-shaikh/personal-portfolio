@@ -22,41 +22,61 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div class="resume-container animated-border">
             <div class="content-wrapper">
                 <header class="header">
-                    <h1>Aayan Shaikh</h1>
-                    <p class="subtitle">
-                        Web Developer | Product Executive | DJ | Photographer
-                    </p>
-                    <div class="contact">
-                        <div>
-                            <i data-feather="map-pin" class="sharp-icon"></i> Pune,
-                            India
+                    <a class="tohome" href="/">Go Home</a>
+                    <div class="header-content">
+                        <div class="profile-image">
+                            <img
+                                src="/Aayan 1 Compressed copy.jpg"
+                                alt="Aayan Shaikh"
+                            />
                         </div>
-                        <div>
-                            <i data-feather="mail" class="sharp-icon"></i>
-                            <a href="mailto:aayan@aayanshaikh.com"
-                                >aayan@aayanshaikh.com</a
-                            >
+                        <div class="header-text">
+                            <h1 class="header-title">Aayan Shaikh</h1>
+
+                            <p class="subtitle">
+                                Web Developer | Product Executive | DJ |
+                                Photographer
+                            </p>
+                            <div class="contact">
+                                <div>
+                                    <i data-feather="map-pin" class="sharp-icon"
+                                    ></i> Pune, India
+                                </div>
+                                <div>
+                                    <i data-feather="mail" class="sharp-icon"
+                                    ></i>
+                                    <a href="mailto:aayan@aayanshaikh.com"
+                                        >aayan@aayanshaikh.com</a
+                                    >
+                                </div>
+                                <div>
+                                    <i data-feather="phone" class="sharp-icon"
+                                    ></i> +91 9767596361
+                                </div>
+                            </div>
+                            <div class="links">
+                                <a
+                                    href="https://linkedin.com/in/aayan-shaikh-6b292118b"
+                                    target="_blank"
+                                    ><i data-feather="linkedin"></i></a
+                                >
+                                <a
+                                    href="https://github.com/aayan-shaikh"
+                                    target="_blank"
+                                    ><i data-feather="github"></i></a
+                                >
+                                <a
+                                    href="https://instagram.com/aayanshaikhofficial"
+                                    target="_blank"
+                                    ><i data-feather="instagram"></i></a
+                                >
+                                <a
+                                    href="https://aayanshaikh.com"
+                                    target="_blank"
+                                    ><i data-feather="globe"></i></a
+                                >
+                            </div>
                         </div>
-                        <div>
-                            <i data-feather="phone" class="sharp-icon"></i> +91 9767596361
-                        </div>
-                    </div>
-                    <div class="links">
-                        <a
-                            href="https://linkedin.com/in/aayan-shaikh-6b292118b"
-                            target="_blank"><i data-feather="linkedin"></i></a
-                        >
-                        <a
-                            href="https://github.com/aayan-shaikh"
-                            target="_blank"><i data-feather="github"></i></a
-                        >
-                        <a
-                            href="https://instagram.com/aayanshaikhofficial"
-                            target="_blank"><i data-feather="instagram"></i></a
-                        >
-                        <a href="https://aayanshaikh.com" target="_blank"
-                            ><i data-feather="globe"></i></a
-                        >
                     </div>
                 </header>
 
@@ -76,7 +96,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </section>
 
                     <section>
-                        <h2><i data-feather="briefcase"></i> Experience</h2>
+                        <h2>
+                            <i data-feather="briefcase"></i> Experience
+                        </h2>
                         <div class="item">
                             <h3>
                                 boAt Lifestyle <span class="position"
@@ -162,7 +184,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </section>
 
                     <section>
-                        <h2><i data-feather="book-open"></i> Education</h2>
+                        <h2>
+                            <i data-feather="book-open"></i> Education
+                        </h2>
                         <ul>
                             <li>
                                 <strong>BBA, FinTech</strong> — Symbiosis Skills
@@ -213,7 +237,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         </ul>
                     </section>
 
-                    <section>
+                    <section class="languages">
                         <h2><i data-feather="globe"></i> Languages</h2>
                         <ul>
                             <li>English (Fluent)</li>
@@ -223,7 +247,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     </section>
 
                     <section>
-                        <h2><i data-feather="book"></i> Publications</h2>
+                        <h2>
+                            <i data-feather="book"></i> Publications
+                        </h2>
                         <ul>
                             <li>“CBDC in India” – Edu-Vishan, 2022</li>
                             <li>
@@ -256,6 +282,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             DJ set, a killer photo shoot, or someone to explain
                             blockchain at a party, I’m just an email away.
                         </p>
+
                         <p>
                             <em
                                 >References, playlist requests, and dad jokes

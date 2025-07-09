@@ -13,7 +13,7 @@
 }
 
 .hero-intro {
-    text-align: center;
+    text-align: left;
     margin-bottom: 4rem;
     animation: fadeInUp 0.8s ease-out;
 }
@@ -47,7 +47,7 @@
     transition: all 0.3s ease;
     cursor: pointer;
     @include paper-texture;
-    text-align: center;
+    text-align: left;
 
     &.active {
         background: rgba($primary, 0.1);
@@ -69,11 +69,11 @@
     color: lighten($primary, 30%);
     font-style: italic;
     @include typewriter-text;
-    margin: 0 auto;
-    max-width: fit-content;
 }
 
 .hero-grid {
+    margin-top: -50px;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;

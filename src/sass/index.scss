@@ -4,7 +4,7 @@
 @use 'variables' as *;
 
 body {
-    border: 1rem solid $accent;
+    // border: 1rem solid $accent;
     background: $accent;
 }
 
@@ -33,6 +33,8 @@ a {
     &:hover,
     &:focus {
         text-decoration: underline;
+        color: $secondary;
+
     }
 }
 
@@ -48,10 +50,11 @@ nav {
 
     ul {
         padding: 0;
-        display: flex;
-        gap: 1rem;
+
+        gap: 0.1rem;
         justify-content: start;
         width: 100%;
+
     }
 
     li {
@@ -60,6 +63,8 @@ nav {
 
         &:hover,
         .active {
+            color: $secondary;
+
             font-style: italic;
             text-decoration: underline;
 
