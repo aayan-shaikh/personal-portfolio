@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
 import "../sass/pages/dance.scss";
 ---
 
@@ -7,11 +8,16 @@ import "../sass/pages/dance.scss";
     <div class="page-container">
         <header class="page-header">
             <h1>Dance</h1>
-            <p class="page-subtitle">My secret weapon</p>
+            <span class="page-subtitle">My secret weapon</span>
         </header>
 
         <div class="content-section">
-            <p>Dancing isn't just my side quest—it's my secret weapon. Trained in multiple dance styles, I've learned that the only thing more satisfying than nailing a triple spin is DJing for people who can actually keep up.</p>
+            <p>
+                Dancing isn't just my side quest—it's my secret weapon. Trained
+                in multiple dance styles, I've learned that the only thing more
+                satisfying than nailing a triple spin is DJing for people who
+                can actually keep up.
+            </p>
 
             <div class="styles-section">
                 <h2>Dance Styles</h2>
@@ -49,8 +55,12 @@ import "../sass/pages/dance.scss";
                 <div class="achievement-card">
                     <div class="trophy">🏆</div>
                     <h3>3rd Place</h3>
-                    <p class="competition">Dubai Bachata Amateur Jack and Jill</p>
-                    <p class="quote">"Proof that sometimes, my feet know what they're doing"</p>
+                    <p class="competition">
+                        Dubai Bachata Amateur Jack and Jill
+                    </p>
+                    <p class="quote">
+                        "Proof that sometimes, my feet know what they're doing"
+                    </p>
                 </div>
             </div>
 
@@ -94,7 +104,13 @@ import "../sass/pages/dance.scss";
                 </div>
             </div>
 
-            <p class="closing-note">Whether I'm on stage or on the floor, I'm here for the music, the movement, and the connection that happens when everything clicks.</p>
+            <CTA title="Ready to Dance?" />
+            
+            <p class="closing-note">
+                Whether I'm on stage or on the floor, I'm here for the music,
+                the movement, and the connection that happens when everything
+                clicks.
+            </p>
         </div>
     </div>
 </BaseLayout>

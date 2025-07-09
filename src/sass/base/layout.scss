@@ -2,41 +2,64 @@
 
 // Shared page layout
 .page-container {
-    max-width: 900px;
+    // max-width: 900px;
     margin: 0 auto;
     padding: $page-padding;
+    max-width: 100ch;
+
+
 }
 
 .page-header {
-    text-align: left;
+
     margin-bottom: $header-gap;
+
+
+
+
+
+
 
     h1 {
         font-size: 3.5rem;
         color: $primary;
         margin-bottom: $spacing-xs;
 
+
+
+
         @media (max-width: $tablet) {
             font-size: 2.5rem;
+            padding: 0;
+            margin-left: 0;
+            ;
         }
     }
 
     .page-subtitle {
-        font-size: 1.2rem;
-        color: lighten($primary, 20%);
-        font-style: italic;
-        @include typewriter-text;
+        // @include typewriter-text;
+
+        font-family: 'Red Hat Mono', monospace;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: $primary;
+
+
 
         @media (max-width: $tablet) {
             font-size: 1rem;
+
+
         }
     }
 }
 
 .content-section {
-    margin-top: -25px;
+    margin-top: -10px;
+
 
     p {
+        margin-top: 1rem;
         line-height: 1.6;
         margin-bottom: $content-gap;
         color: $primary;
@@ -74,13 +97,13 @@
 // Shared card styles
 .card {
     background: rgba($primary, 0.03);
-    padding: $content-gap;
-    border: 1px solid rgba($primary, 0.1);
-    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
-    @include realistic-shadow(2);
+    padding: 2rem 3rem;
+    border: 1px solid rgba($primary, 0.2);
+    // @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    // @include realistic-shadow(2);
 
     &:hover {
-        @include realistic-shadow(4);
+        // @include realistic-shadow(4);
     }
 
     h3 {
@@ -91,6 +114,7 @@
 
     p {
         margin: 0;
-        color: lighten($primary, 10%);
+
+        // color: lighten($primary, 10%);
     }
 }

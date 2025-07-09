@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PhotoGallery from "../components/PhotoGallery.astro";
+import CTA from "../components/CTA.astro";
 
 const portfolioImages = [
     "/Portfolio/DSC00047.jpg",
@@ -23,75 +24,19 @@ const portfolioImages = [
     <div class="page-container">
         <header class="page-header">
             <h1>Photography</h1>
-            <p class="page-subtitle">I'm usually behind a lens</p>
+            <span class="page-subtitle">I'm usually behind a lens</span>
         </header>
 
         <div class="content-section">
             <p>
-                As the founder of <strong>WebMinds</strong> and <strong
-                    >Aayan Shaikh Photography</strong
-                >, I've led a team of photographers, videographers, and editors
-                on everything from in-flight helicopter shoots (yes, really) to
+                As the founder of <strong>Aayan Shaikh Photography</strong>,
+                I've led a team of photographers, videographers, and editors on
+                everything from in-flight helicopter shoots (yes, really) to
                 club nights, interiors, and branding campaigns.
             </p>
 
-            <p>
-                My style is all about capturing the real moments—the laughter,
-                the chaos, the epic dance fails (don't worry, I'll crop out the
-                embarrassing bits). Need a creative director who can also
-                moonwalk? Let's talk.
-            </p>
-
             <PhotoGallery images={portfolioImages} title="Featured Work" />
-
-            <div class="services-section">
-                <h2>What I Shoot</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <span class="service-icon">🚁</span>
-                        <h3>Aerial Photography</h3>
-                        <p>
-                            In-flight helicopter shoots and unique perspectives
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-icon">🎉</span>
-                        <h3>Events & Nightlife</h3>
-                        <p>Club nights, parties, and live performances</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-icon">🏢</span>
-                        <h3>Interiors & Architecture</h3>
-                        <p>Spaces that tell stories and inspire</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-icon">🎯</span>
-                        <h3>Brand Campaigns</h3>
-                        <p>Creative direction and brand storytelling</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="philosophy-section">
-                <h2>My Approach</h2>
-                <div class="philosophy-card">
-                    <p>📷 Real Moments</p>
-                    <p>
-                        Capturing authentic emotions and genuine interactions,
-                        bringing artistic flair to every shot with dynamic
-                        energy, movement, rhythm, and life in every frame.
-                    </p>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <h2>Ready to Create Something Epic?</h2>
-                <p>
-                    Whether you need a photographer who understands rhythm or a
-                    creative director who can keep up with your vision, I'm here
-                    to make it happen.
-                </p>
-            </div>
+            <CTA title="Ready to Create Something Epic?" />
         </div>
     </div>
 </BaseLayout>

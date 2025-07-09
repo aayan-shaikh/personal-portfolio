@@ -5,7 +5,7 @@ const navLinks = [
     { name: "Resume", link: "/resume" },
     { name: "DJ", link: "/dj" },
     { name: "Photography", link: "/photography" },
-    { name: "Dance", link: "/dance" },
+    // { name: "Dance", link: "/dance" },
     { name: "Programming", link: "/programming" },
 ];
 
@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
     <body>
         <div class="outline-wrapper">
             <nav>
-                <a class="nav-title" href="#">Aayan's Life</a>
+                <p class="nav-title">Aayan's Life</p>
                 <ul>
                     {
                         navLinks.map((link) => (

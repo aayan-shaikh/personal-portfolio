@@ -1,48 +1,8 @@
 @use "../variables/" as *;
 
-.page-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-}
+// Programming-specific styles only
 
-.page-header {
-    text-align: left;
-    margin-bottom: 3rem;
-
-    h1 {
-        font-size: 3.5rem;
-        color: $primary;
-        margin-bottom: 0.5rem;
-    }
-
-    .page-subtitle {
-        font-size: 1.2rem;
-        color: lighten($primary, 20%);
-        font-style: italic;
-        @include typewriter-text;
-        margin: 0 auto;
-        max-width: fit-content;
-    }
-}
-
-.content-section {
-    p {
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        color: $primary;
-    }
-}
-
-.skills-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === SKILLS SECTION ===
 
 .skills-grid {
     display: grid;
@@ -86,16 +46,7 @@
     }
 }
 
-.experience-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
-
+// === EXPERIENCE SECTION ===
 .experience-timeline {
     position: relative;
 }
@@ -143,7 +94,7 @@
             padding: 0.3rem 0;
             padding-left: 1.5rem;
             position: relative;
-            
+
             &:before {
                 content: '▸';
                 position: absolute;
@@ -155,15 +106,7 @@
     }
 }
 
-.research-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === RESEARCH SECTION ===
 
 .research-grid {
     display: grid;
@@ -210,53 +153,26 @@
     }
 }
 
-.philosophy-section {
-    margin: 3rem 0;
+// === PHILOSOPHY SECTION ===
+.philosophy-card {
+    background: rgba($primary, 0.05);
+    padding: 2rem;
+    border-left: 4px solid $accent;
 
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
+    p {
+        margin-bottom: 1rem;
+        font-style: italic;
 
-    .philosophy-card {
-        background: rgba($primary, 0.05);
-        padding: 2rem;
-        border-left: 4px solid $accent;
+        &:last-child {
+            margin-bottom: 0;
+        }
 
-        p {
-            margin-bottom: 1rem;
-            font-style: italic;
-            
-            &:last-child {
-                margin-bottom: 0;
-            }
-            
-            &:first-child {
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: $primary;
-            }
+        &:first-child {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: $primary;
         }
     }
 }
 
-.cta-section {
-    margin: 3rem 0;
-    text-align: left;
-    background: linear-gradient(135deg, rgba($primary, 0.05), rgba($accent, 0.1));
-    padding: 3rem 2rem;
-    border: 2px solid rgba($primary, 0.1);
 
-    h2 {
-        color: $primary;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        margin: 0;
-        font-style: italic;
-        color: lighten($primary, 20%);
-        font-size: 1.1rem;
-    }
-}

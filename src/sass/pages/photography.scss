@@ -1,82 +1,34 @@
 @use "../variables/" as *;
 
-.page-container {
-    max-width: 900px;
-    margin: 0 auto;
+// Photography-specific styles only
+
+.photo-gallery {
+    // outline: 10px solid lime;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+// === PHILOSOPHY SECTION ===
+.philosophy-card {
+    background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
     padding: 2rem;
-}
-
-.page-header {
+    border-left: 4px solid $accent;
     text-align: left;
-    margin-bottom: 3rem;
 
-    h1 {
-        font-size: 3.5rem;
-        color: $primary;
-        margin-bottom: 0.5rem;
-    }
-
-    .page-subtitle {
-        font-size: 1.2rem;
-        color: lighten($primary, 20%);
-        font-style: italic;
-        @include typewriter-text;
-        margin: 0 auto;
-        max-width: fit-content;
-
-        @media (max-width: 768px) {
-            font-size: 1rem;
-            max-width: 100%;
-            overflow: hidden;
-        }
-    }
-}
-
-.content-section {
     p {
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        color: $primary;
-    }
-}
+        margin-bottom: 1rem;
+        font-style: italic;
 
-.philosophy-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-
-    .philosophy-card {
-        background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
-        padding: 2rem;
-        border-left: 4px solid $accent;
-        text-align: left;
-
-        p {
-            margin-bottom: 1rem;
-            font-style: italic;
-
-            &:first-child {
-                font-size: 1.2rem;
-                font-weight: 600;
-                color: $primary;
-            }
+        &:first-child {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $primary;
         }
     }
 }
 
-.services-section {
-    margin: 3rem 0;
 
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === SERVICES SECTION ===
 
 .services-grid {
     display: grid;
@@ -117,15 +69,7 @@
     }
 }
 
-.experience-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === EXPERIENCE SECTION ===
 
 .experience-cards {
     display: grid;
@@ -171,22 +115,3 @@
     }
 }
 
-.cta-section {
-    margin: 3rem 0;
-    text-align: left;
-    background: rgba($primary, 0.05);
-    padding: 2rem;
-    @include paper-texture;
-    @include ink-smudge;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        margin: 0;
-        font-style: italic;
-        color: lighten($primary, 20%);
-    }
-}

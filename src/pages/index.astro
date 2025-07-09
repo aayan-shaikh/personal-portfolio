@@ -118,7 +118,7 @@ import "../sass/pages/home.scss";
                 );
                 if (targetCard) {
                     targetCard.style.transform =
-                        "translateY(-12px) rotate(2deg)";
+                        "translateY(-1px) rotate(2deg)";
                     setTimeout(() => {
                         targetCard.style.transform = "";
                     }, 600);
@@ -130,7 +130,8 @@ import "../sass/pages/home.scss";
             this.cards.forEach((card) => {
                 if (card !== activeCard) {
                     card.style.opacity = "0.6";
-                    card.style.transform = "scale(0.98)";
+                    // card.style.transform = "scale(0.98)";
+                    // card.style.filter = "blur(1px)";
                 }
             });
         }
@@ -138,7 +139,6 @@ import "../sass/pages/home.scss";
         resetCardOpacity() {
             this.cards.forEach((card) => {
                 card.style.opacity = "1";
-                card.style.transform = "";
             });
         }
     }

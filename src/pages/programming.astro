@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
 import "../sass/pages/programming.scss";
 ---
 
@@ -7,7 +8,7 @@ import "../sass/pages/programming.scss";
     <div class="page-container">
         <header class="page-header">
             <h1>Programming</h1>
-            <p class="page-subtitle">Caffeine</p>
+            <span class="page-subtitle">Caffeine</span>
         </header>
 
         <div class="content-section">
@@ -117,13 +118,7 @@ import "../sass/pages/programming.scss";
                 </div>
             </div>
 
-            <div class="cta-section">
-                <h2>Ready to Build Something Amazing?</h2>
-                <p>
-                    Let's turn your ideas into reality—with clean code, smart
-                    solutions, and maybe a few dance breaks along the way.
-                </p>
-            </div>
+            <CTA title="Ready to Build Something Amazing?" />
         </div>
     </div>
 </BaseLayout>

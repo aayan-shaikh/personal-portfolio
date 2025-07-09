@@ -15,11 +15,11 @@ const { title, subtitle, description } = Astro.props;
     <meta charset="UTF-8" />
     {description && <meta name="description" content={description} />}
   </Fragment>
-  
+
   <div class="page-container">
     <header class="page-header">
       <h1>{title}</h1>
-      <p class="page-subtitle">{subtitle}</p>
+      <span class="page-subtitle">{subtitle}</span>
     </header>
 
     <div class="content-section">

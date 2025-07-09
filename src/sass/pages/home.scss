@@ -3,10 +3,12 @@
 
 .hero-section {
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
+    min-width: 90vw;
     justify-content: center;
-    align-items: center;
+
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -15,7 +17,6 @@
 .hero-intro {
     text-align: left;
     margin-bottom: 4rem;
-    animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-title {
@@ -24,7 +25,6 @@
     margin-bottom: 1rem;
     font-family: $title-font;
     font-weight: 700;
-    animation: slideInDown 0.6s ease-out;
 }
 
 .hero-roles {
@@ -65,17 +65,17 @@
 }
 
 .hero-tagline {
-    font-size: 1.2rem;
-    color: lighten($primary, 30%);
-    font-style: italic;
-    @include typewriter-text;
+    font-size: 1.5rem;
+    // color: lighten($primary, 30%);
+    // font-style: italic;
+    // @include typewriter-text;
 }
 
 .hero-grid {
     margin-top: -50px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     width: 100%;
     margin-bottom: 3rem;
@@ -83,43 +83,17 @@
 
 .hero-card {
     background: rgba($primary, 0.03);
-    border: 1px solid rgba($primary, 0.1);
     padding: 2.5rem 2rem;
     text-decoration: none;
     color: $primary;
     text-align: center;
     position: relative;
     overflow: hidden;
-    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
-    @include realistic-shadow(2);
-    animation: cardSlideIn 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
-
-    &:nth-child(1) {
-        animation-delay: 0.1s;
-    }
-
-    &:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    &:nth-child(3) {
-        animation-delay: 0.3s;
-    }
-
-    &:nth-child(4) {
-        animation-delay: 0.4s;
-    }
-
-    &:nth-child(5) {
-        animation-delay: 0.5s;
-    }
 
     &:hover {
         text-decoration: none;
-        @include realistic-shadow(6);
-        transform: translateY(-8px) rotate(1deg);
+        // @include realistic-shadow(6);
+        transform: translateY(-1px) rotate(1deg);
 
         .card-hover {
             opacity: 1;
@@ -169,18 +143,18 @@
 }
 
 .resume-card {
-    background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
-    border-color: rgba($accent, 0.3);
+    // background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+    // outline: 1px solid rgba($primary, 0.1);
+    // border-color: rgba($accent, 0.3);
     order: -1;
 
     .card-icon {
-        color: $accent;
+        // color: $accent;
     }
 }
 
 .hero-footer {
     text-align: center;
-    animation: fadeIn 1s ease-out 0.8s both;
 }
 
 .footer-text {
@@ -190,46 +164,7 @@
     @include ink-smudge;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes cardSlideIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
 
 @media (max-width: 768px) {
     .hero-title {

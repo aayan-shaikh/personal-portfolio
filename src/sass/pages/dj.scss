@@ -1,32 +1,38 @@
 @use "../variables/" as *;
 
 .genres-grid {
+    font-family: "Red Hat mono";
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: $spacing-sm;
     margin: $content-gap 0;
 }
 
-.genre-card {
-    padding: $spacing-sm;
-    text-align: center;
-    border: 1px solid rgba($primary, 0.2);
-    font-weight: 600;
-    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
-    @include realistic-shadow(1);
 
-    &:hover {
-        @include realistic-shadow(3);
-    }
+.genre-card {
+    text-align: left;
+    background: rgba($accent, 0.2);
+
+    padding: $spacing-sm;
+
+    // border: 1px solid rgba($primary, 0.2);
+    font-weight: 500;
+    // @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    // @include realistic-shadow(1);
+    box-shadow: none !important;
+
+
 }
 
 .highlight-card {
-    border-left: 4px solid $accent;
-    @include paper-crease('medium');
+    border-left: 2px solid $accent;
+
+
 
     ul {
         list-style: none;
         padding: 0;
+        font-family: "Red hat mono";
     }
 
     li {
@@ -48,11 +54,12 @@
 .closing-note {
     font-style: italic;
     text-align: center;
-    color: lighten($primary, 20%);
+    // color: lighten($primary, 20%);
     margin-top: $section-gap;
     padding: $spacing-md;
-    background: rgba($accent, 0.05);
-    @include paper-texture;
-    @include ink-smudge;
-    @include torn-edge('top');
+    background: rgba($accent, 0.1);
+
+
+
+
 }

@@ -99,15 +99,7 @@ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 // Torn edges
-@mixin torn-edge($side: 'top') {
-  @if $side =='top' {
-    clip-path: polygon(0 8px, 3% 0, 7% 6px, 12% 2px, 18% 8px, 23% 1px, 28% 7px, 34% 3px, 39% 9px, 45% 2px, 51% 8px, 56% 1px, 62% 6px, 67% 3px, 73% 9px, 78% 2px, 84% 7px, 89% 1px, 95% 8px, 100% 3px, 100% 100%, 0 100%);
-  }
-
-  @else if $side =='bottom' {
-    clip-path: polygon(0 0, 100% 0, 100% 92px, 95% 100%, 89% 94px, 84% 98px, 78% 92px, 73% 99px, 67% 93px, 62% 97px, 56% 91px, 51% 98px, 45% 92px, 39% 96px, 34% 91px, 28% 97px, 23% 93px, 18% 99px, 12% 92px, 7% 98px, 3% 94px, 0 100%);
-  }
-}
+@mixin torn-edge($side: 'top') {}
 
 // Crease effects
 @mixin paper-crease($type: 'light') {
@@ -152,22 +144,10 @@ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
 // Typewriter text effect
 @mixin typewriter-text {
-  font-family: 'Red Hat Mono', monospace;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 0;
-  font-weight: 500;
-  color: $primary;
-
-  font-style: normal;
-  text-align: left;
-
-  animation: typewriter 1s steps(40) 1s both, blink 1s infinite 4s;
-
-  &::after {
-    content: '';
-    animation: blink 1s infinite;
-  }
+  // font-family: 'Red Hat Mono', monospace;
+  // font-weight: 500;
+  // color: $primary;
+  // font-style: normal;
 }
 
 @keyframes typewriter {
@@ -190,13 +170,4 @@ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 // Ink smudge text effect
-@mixin ink-smudge {
-  transition: text-shadow 0.3s ease;
-
-  &:hover {
-    text-shadow:
-      1px 1px 2px rgba($primary, 0.1),
-      -1px 1px 2px rgba($primary, 0.05),
-      1px -1px 2px rgba($primary, 0.05);
-  }
-}
+@mixin ink-smudge {}

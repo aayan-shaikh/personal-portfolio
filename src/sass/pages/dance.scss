@@ -1,53 +1,12 @@
 @use "../variables/" as *;
 
-.page-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-}
+// Dance-specific styles only
 
-.page-header {
-    text-align: left;
-    // margin-bottom: 3rem;
-
-    h1 {
-        font-size: 3.5rem;
-        margin-right: auto;
-        color: $primary;
-        margin-bottom: 0.5rem;
-    }
-
-    .page-subtitle {
-        font-size: 1.2rem;
-        color: lighten($primary, 20%);
-        font-style: italic;
-        @include typewriter-text;
-        margin: 0 auto;
-        max-width: fit-content;
-    }
-}
-
-.content-section {
-    p {
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        color: $primary;
-    }
-}
-
-.styles-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === DANCE STYLES SECTION ===
 
 .styles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(1fr 1fr 1fr, 1fr));
     gap: 1.5rem;
 }
 
@@ -97,15 +56,7 @@
     }
 }
 
-.achievement-section {
-    margin: 4rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === ACHIEVEMENT SECTION ===
 
 .achievement-card {
     background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
@@ -143,15 +94,7 @@
     }
 }
 
-.philosophy-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === PHILOSOPHY SECTION ===
 
 .philosophy-cards {
     display: grid;
@@ -186,15 +129,7 @@
     }
 }
 
-.availability-section {
-    margin: 3rem 0;
-
-    h2 {
-        color: $primary;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-}
+// === AVAILABILITY SECTION ===
 
 .availability-grid {
     display: grid;

@@ -1,0 +1,29 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Let's Connect!" } = Astro.props;
+---
+
+<div class="cta-section">
+  <h2>{title}</h2>
+  <div class="cta-buttons">
+    <a 
+      href="https://wa.me/919767596361" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="cta-button whatsapp-btn"
+    >
+      <span class="button-icon">💬</span>
+      WhatsApp
+    </a>
+    <a 
+      href="mailto:aayan@aayanshaikh.com"
+      class="cta-button email-btn"
+    >
+      <span class="button-icon">✉️</span>
+      Email
+    </a>
+  </div>
+</div>
