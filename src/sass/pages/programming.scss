@@ -1,6 +1,157 @@
 @use "../variables/" as *;
+@use "../base/" as *;
 
 // Programming-specific styles only
+
+// === GITHUB SECTION ===
+.github-stats {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-bottom: 2rem;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+
+        // border: 1px solid rgba($primary, 0.1);
+        // @include realistic-shadow(2);
+
+        &:hover {
+            // @include realistic-shadow(4);
+        }
+    }
+}
+
+.github-link {
+    text-align: center;
+    width: 100%;
+
+    a {
+        display: inline-flex;
+        width: 100%;
+
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        background: rgba($accent, 0.1);
+        border: 1px solid rgba($primary, 0.2);
+        text-decoration: none;
+        color: $primary;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        // @include realistic-shadow(2);
+
+        &:hover {
+            background: rgba($accent, 0.3);
+            transform: translateY(-2px);
+            // @include realistic-shadow(4);
+        }
+    }
+
+    .github-icon {
+        font-size: 1.2rem;
+    }
+}
+
+.netlify-status {
+    margin: 1rem 0 2rem;
+}
+
+.badge-category {
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    color: $primary;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    &.loading .badge-img {
+        opacity: 0;
+    }
+
+    &.loaded .badges-loading {
+        display: none;
+    }
+}
+
+.badges-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $primary;
+    font-family: 'Red Hat Mono', monospace;
+    font-size: 0.9rem;
+
+    &::after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        border: 2px solid $primary;
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+.badge {
+    transition: opacity 0.3s ease;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.badge-category {
+    font-family: $body-font;
+    // padding-top: 1rem;
+    // display: inline-block;
+    // display: inline-block;
+    margin-top: 1rem;
+    // outline: 1px solid lime;
+}
+
+
+
+.badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media (min-width: 767px) {
+        display: flex;
+
+
+    }
+
+    vertical-align: center;
+    align-items: center;
+
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    background-color: rgba($accent, 0.2);
+
+    // min-width: max-content;
+    .badge {
+        // display: grid;
+        // grid-template-columns: subgrid;
+        // min-width: 100%;
+        // object-fit: cover;
+        // outline: 1px solid lime;
+        // width: 100%;
+        // flex: 1;
+        // height: auto;
+    }
+
+}
 
 // === SKILLS SECTION ===
 
@@ -112,6 +263,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-bottom: 1rem;
+
 }
 
 .research-card {
@@ -120,11 +273,11 @@
     border: 1px solid rgba($primary, 0.1);
     transition: all 0.3s ease;
 
-    @include paper-card($curl: true, $fold: false, $bleed: false, $texture: true);
-    @include realistic-shadow(2);
+    // @include paper-card($curl: true, $fold: false, $bleed: false, $texture: true);
+    // @include realistic-shadow(2);
 
     &:hover {
-        @include realistic-shadow(4);
+        // @include realistic-shadow(4);
     }
 
     .research-icon {
@@ -174,5 +327,3 @@
         }
     }
 }
-
-

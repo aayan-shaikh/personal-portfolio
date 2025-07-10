@@ -13,29 +13,35 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     <p>Capturing moments, creating memories</p>
   </div>
 
-  <div class="gallery-grid">
+  <div class="gallery-loading" id="gallery-loading">
+    <div class="loading-spinner"></div>
+    <p>Loading gallery...</p>
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
     {
       images.map((image, index) => (
         <div class="gallery-item" data-index={index}>
           <img
             src={image}
-            alt={`Photography work ${index + 1}`}
+            alt={`Aayan's Photography work ${index + 1}`}
             loading="lazy"
             class="gallery-image"
           />
           <div class="image-overlay">
             <button class="view-btn" data-image={image}>
-              {/* <svg
+              <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                style="margin-right: 0.2rem;"
               >
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                 <circle cx="12" cy="12" r="3" />
-              </svg> */}
+              </svg>
               View
             </button>
           </div>
@@ -82,25 +88,67 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     font-style: italic;
   }
 
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr !important;
-    @media (min-width: 767px) {
-      grid-template-columns: 1fr 1fr 1fr !important;
+  .gallery-loading {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-secondary, #666);
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
     }
-    gap: 1.5rem;
-    /* padding: 0 1rem; */
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .gallery-grid.loaded + .gallery-loading {
+    display: none;
+  }
+
+  .gallery-grid {
+    columns: 3;
+    column-gap: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    @media (max-width: 768px) {
+      columns: 2;
+      column-gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      columns: 2;
+      column-gap: 0.5rem;
+    }
   }
 
   .gallery-item {
-    will-change: filter;
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    width: 100%;
     position: relative;
-    aspect-ratio: 4/3;
     overflow: hidden;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.3);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform-origin: bottom left;
+
+    @media (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
     /* background-image: radial-gradient(
         circle at 20% 50%,
         rgba(0, 0, 0, 0.02) 1px,
@@ -131,8 +179,8 @@ const { images, title = "Photography Portfolio" } = Astro.props;
 
   .gallery-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
     transition: transform 0.3s ease;
   }
 
@@ -319,7 +367,7 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     }
 
     .gallery-item {
-      aspect-ratio: 3/4;
+      /* aspect-ratio: 3/4; */
     }
 
     .lightbox-content {
@@ -347,6 +395,42 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     }
 
     init() {
+      this.setupImageLoading();
+      this.setupLightbox();
+    }
+
+    setupImageLoading() {
+      const galleryGrid = document.getElementById("gallery-grid");
+      const galleryLoading = document.getElementById("gallery-loading");
+      const images = document.querySelectorAll(".gallery-image");
+      let loadedCount = 0;
+
+      const checkAllLoaded = () => {
+        if (loadedCount === images.length) {
+          galleryLoading.style.display = "none";
+          galleryGrid.style.opacity = "1";
+        }
+      };
+
+      images.forEach((img) => {
+        if (img.complete) {
+          loadedCount++;
+        } else {
+          img.onload = () => {
+            loadedCount++;
+            checkAllLoaded();
+          };
+          img.onerror = () => {
+            loadedCount++;
+            checkAllLoaded();
+          };
+        }
+      });
+
+      checkAllLoaded();
+    }
+
+    setupLightbox() {
       // Collect all images
       const galleryItems = document.querySelectorAll(".gallery-item");
       galleryItems.forEach((item, index) => {

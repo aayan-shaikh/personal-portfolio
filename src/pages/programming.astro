@@ -2,79 +2,217 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTA from "../components/CTA.astro";
 import "../sass/pages/programming.scss";
+
+const toolBadges = [
+    {
+        name: "Bun",
+        src: "https://img.shields.io/badge/bun-282a36?style=for-the-badge&logo=bun&logoColor=fbf0df",
+    },
+    {
+        name: "Node",
+        src: "https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white",
+    },
+    {
+        name: "Astro",
+        src: "https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE",
+    },
+    {
+        name: "React",
+        src: "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
+    },
+    {
+        name: "Django",
+        src: "https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green",
+    },
+    {
+        name: "GSAP",
+        src: "https://img.shields.io/badge/GSAP-93CF2B?style=for-the-badge&logo=greensock&logoColor=white",
+    },
+    {
+        name: "SASS",
+        src: "https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white",
+    },
+    {
+        name: "Vite",
+        src: "https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E",
+    },
+    {
+        name: "Docker",
+        src: "https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white",
+    },
+    {
+        name: "Git",
+        src: "https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white",
+    },
+    {
+        name: "ZSH",
+        src: "https://img.shields.io/badge/Zsh-F15A24?style=for-the-badge&logo=Zsh&logoColor=white",
+    },
+    {
+        name: "MacOS",
+        src: "https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white",
+    },
+    {
+        name: "IOS",
+        src: "https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white",
+    },
+    {
+        name: "Notion",
+        src: "https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white",
+    },
+    {
+        name: "Arc Browser",
+        src: "https://img.shields.io/badge/Arc-1638FB?style=for-the-badge&logo=Arc&logoColor=white",
+    },
+    {
+        name: "Safari Browser",
+        src: "https://img.shields.io/badge/Safari-FF1B2D?style=for-the-badge&logo=Safari&logoColor=white",
+    },
+    {
+        name: "Netlify",
+        src: "https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white",
+    },
+    {
+        name: "SQLite",
+        src: "https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white",
+    },
+    {
+        name: "Sketch",
+        src: "https://img.shields.io/badge/Sketch-FFB387?style=for-the-badge&logo=sketch&logoColor=black",
+    },
+    {
+        name: "Figma",
+        src: "https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white",
+    },
+    {
+        name: "Photoshop",
+        src: "https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=Adobe%20Photoshop&logoColor=black",
+    },
+    {
+        name: "MDN",
+        src: "https://img.shields.io/badge/MDN_Web_Docs-black?style=for-the-badge&logo=mdnwebdocs&logoColor=white",
+    },
+    {
+        name: "Homebrew",
+        src: "https://img.shields.io/badge/homebrew-FBB040?style=for-the-badge&logo=homebrew&logoColor=white",
+    },
+    {
+        name: "Apple Sillicon",
+        src: "https://img.shields.io/badge/apple%20silicon-333333?style=for-the-badge&logo=apple&logoColor=white",
+    },
+];
+
+const langBadges = [
+    {
+        name: "CSS3",
+        src: "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white",
+    },
+    {
+        name: "HTML5",
+        src: "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white",
+    },
+    {
+        name: "HTMX",
+        src: "https://img.shields.io/badge/%3C/%3E%20htmx-3D72D7?style=for-the-badge&logo=mysl&logoColor=white",
+    },
+    {
+        name: "JavaScript",
+        src: "https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E",
+    },
+    {
+        name: "Python",
+        src: "https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue",
+    },
+    {
+        name: "Typescript",
+        src: "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white",
+    },
+];
 ---
 
 <BaseLayout>
     <div class="page-container">
         <header class="page-header">
             <h1>Programming</h1>
-            <span class="page-subtitle">Caffeine</span>
+            <span class="page-subtitle"
+                >Website Status <div class="netlify-status">
+                    <img
+                        src="https://api.netlify.com/api/v1/badges/79387918-c55c-44fc-ba89-470efa8fb0cd/deploy-status"
+                        alt=""
+                    />
+                </div>
+                <div class="netlify-status">
+                    <img
+                        src="https://tokei.rs/b1/github/aayan-shaikh/personal-portfolio"
+                        alt=""
+                    />
+                </div>
+            </span>
         </header>
 
         <div class="content-section">
+            <div class="badge-category">Tools I use:</div>
+            <div class="badges loading" id="badges-container">
+                <div class="badges-loading">Loading badges...</div>
+                {
+                    toolBadges.map((badge) => (
+                        <div class="badge">
+                            <img
+                                width="100px"
+                                src={badge.src}
+                                alt={badge.name}
+                                class="badge-img"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+            <div class="badge-category">Languages I Code:</div>
+            <div class="badges loading" id="lang-badges-container">
+                <div class="badges-loading">Loading badges...</div>
+                {
+                    langBadges
+                        .filter((badge) => badge.src)
+                        .map((badge) => (
+                            <div class="badge">
+                                <img
+                                    width="100px"
+                                    src={badge.src}
+                                    alt={badge.name}
+                                    class="badge-img"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ))
+                }
+            </div>
             <p>
-                By day (and sometimes by night, if the caffeine holds out), I'm
-                a product executive and programmer. I've worked with brands like <strong
-                    >boAt Lifestyle</strong
-                >, leading research for flagship audio products, wrangling
-                Python scripts, and turning market research into actual, usable
-                products.
+                By day (mostly by night), I'm a product executive and
+                programmer.
             </p>
 
-            <div class="skills-section">
-                <h2>Technical Arsenal</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <span class="skill-icon">🐍</span>
-                        <h3>Python Scripting</h3>
-                        <p>For when you need your life automated</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-icon">🌐</span>
-                        <h3>Website Design & SEO</h3>
-                        <p>So your mom can finally find your portfolio</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-icon">📊</span>
-                        <h3>Data Analysis</h3>
-                        <p>
-                            Because someone has to make sense of all those
-                            Spotify stats
-                        </p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="skill-icon">📈</span>
-                        <h3>Content Optimization</h3>
-                        <p>Digital marketing that actually works</p>
-                    </div>
+            <div class="github-section">
+                <h2>GitHub Projects</h2>
+                <div class="github-stats">
+                    <img
+                        src="https://github-readme-stats.vercel.app/api?username=aayan-shaikh&show_icons=true&theme=default"
+                        alt="GitHub Stats"
+                    />
+                    <img
+                        src="https://github-readme-stats.vercel.app/api/top-langs/?username=aayan-shaikh&layout=compact"
+                        alt="Top Languages"
+                    />
                 </div>
-            </div>
-
-            <div class="experience-section">
-                <h2>Professional Experience</h2>
-                <div class="experience-timeline">
-                    <div class="experience-item">
-                        <div class="company-logo">🎧</div>
-                        <div class="experience-content">
-                            <h3>boAt Lifestyle</h3>
-                            <p class="">Market Research & Audio Intern</p>
-                            <p class="duration">Mumbai | 06/2023–09/2023</p>
-                            <ul>
-                                <li>
-                                    Led a 660-person survey for a flagship
-                                    neckband
-                                </li>
-                                <li>
-                                    Collaborated with research agencies on TWS
-                                    products
-                                </li>
-                                <li>
-                                    Tuned and benchmarked audio gear with
-                                    CRYSOUND 6151
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="github-link">
+                    <a
+                        href="https://github.com/aayan-shaikh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="github-icon">📂</span>
+                        View All Projects on GitHub
+                    </a>
                 </div>
             </div>
 
@@ -102,23 +240,44 @@ import "../sass/pages/programming.scss";
                 </div>
             </div>
 
-            <div class="philosophy-section">
-                <h2>My Approach</h2>
-                <div class="philosophy-card">
-                    <p>
-                        I'm always up for a tech challenge—unless it involves
-                        fixing printers. That's where I draw the line.
-                    </p>
-                    <p>
-                        I believe in turning complex problems into elegant
-                        solutions, whether that's automating workflows,
-                        optimizing user experiences, or making data tell a story
-                        that actually matters.
-                    </p>
-                </div>
-            </div>
-
             <CTA title="Ready to Build Something Amazing?" />
         </div>
     </div>
 </BaseLayout>
+
+<script>
+    function handleBadgeLoading(containerId) {
+        const container = document.getElementById(containerId);
+        const images = container.querySelectorAll(".badge-img");
+        let loadedCount = 0;
+
+        function checkAllLoaded() {
+            if (loadedCount === images.length) {
+                container.classList.remove("loading");
+                container.classList.add("loaded");
+            }
+        }
+
+        images.forEach((img) => {
+            if (img.complete) {
+                loadedCount++;
+            } else {
+                img.onload = () => {
+                    loadedCount++;
+                    checkAllLoaded();
+                };
+                img.onerror = () => {
+                    loadedCount++;
+                    checkAllLoaded();
+                };
+            }
+        });
+
+        checkAllLoaded();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        handleBadgeLoading("badges-container");
+        handleBadgeLoading("lang-badges-container");
+    });
+</script>

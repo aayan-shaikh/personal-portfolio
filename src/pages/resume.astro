@@ -82,20 +82,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                 <main>
                     <section>
-                        <h2><i data-feather="user"></i> Profile</h2>
-                        <p>
-                            Why pick just one passion when you can juggle four?
-                            I’m Aayan, a product executive by daylight, DJ by
-                            moonlight, photographer when the moment’s right. I
-                            thrive where creativity meets logic, mixing music,
-                            pixels, and Python scripts with equal enthusiasm. If
-                            you need someone who can launch a product, spin a
-                            set, and debug your website sometimes all before
-                            lunch, I’m your guy.
-                        </p>
-                    </section>
-
-                    <section>
                         <h2>
                             <i data-feather="briefcase"></i> Experience
                         </h2>
@@ -277,6 +263,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 </main>
             </div>
         </div>
+
+        <button
+            class="home-button"
+            onclick="window.location.href='/'"
+            title="Go Home"
+        >
+            Home
+        </button>
+        <button class="print-button" onclick="window.print()" title="Print">
+            Print
+        </button>
+
         <script src="https://unpkg.com/feather-icons"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
