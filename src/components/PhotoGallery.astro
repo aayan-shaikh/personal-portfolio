@@ -68,6 +68,7 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     padding: 2rem 0;
     max-width: 1200px;
     margin: 0 auto;
+    contain: layout style;
   }
 
   .gallery-header {
@@ -143,8 +144,10 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     overflow: hidden;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
     transform-origin: bottom left;
+    will-change: transform;
+    contain: layout style paint;
 
     @media (max-width: 768px) {
       margin-bottom: 1rem;
@@ -181,7 +184,16 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
+    filter: blur(10px);
+    opacity: 0.5;
+    transition: filter 0.5s ease, opacity 0.5s ease, transform 0.3s ease;
+    will-change: filter, opacity, transform;
+    transform: translateZ(0);
+  }
+
+  .gallery-image.loaded {
+    filter: blur(0);
+    opacity: 1;
   }
 
   .gallery-item:hover .gallery-image {
@@ -414,13 +426,16 @@ const { images, title = "Photography Portfolio" } = Astro.props;
 
       images.forEach((img) => {
         if (img.complete) {
+          img.classList.add('loaded');
           loadedCount++;
         } else {
           img.onload = () => {
+            img.classList.add('loaded');
             loadedCount++;
             checkAllLoaded();
           };
           img.onerror = () => {
+            img.classList.add('loaded');
             loadedCount++;
             checkAllLoaded();
           };
