@@ -48,10 +48,7 @@ const currentPath = normalizePath(Astro.url.pathname);
         <meta property="og:url" content="https://aayanshaikh.com" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta
-            property="og:image"
-            content={`https://aayanshaikh.com/${image}`}
-        />
+        <meta property="og:image" content={`https://aayanshaikh.com${image}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={description} />
@@ -64,7 +61,7 @@ const currentPath = normalizePath(Astro.url.pathname);
         <meta property="twitter:description" content={description} />
         <meta
             property="twitter:image"
-            content={`https://aayanshaikh.com/${image}`}
+            content={`https://aayanshaikh.com${image}`}
         />
 
         <!-- Favicon -->
