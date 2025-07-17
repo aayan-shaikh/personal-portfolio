@@ -43,19 +43,29 @@ const currentPath = normalizePath(Astro.url.pathname);
         <link rel="canonical" href={canonicalURL} />
         <meta name="author" content="Aayan Shaikh" />
 
-        <!-- Open Graph / Facebook -->
+        <!-- Open Graph / Facebook / WhatsApp -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content={Astro.url.href} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL(image, Astro.url)} />
+        <meta
+            property="og:image"
+            content={`https://${Astro.url.host}${image}`}
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={description} />
+        <meta property="og:image:type" content="image/png" />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={Astro.url.href} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL(image, Astro.url)} />
+        <meta
+            property="twitter:image"
+            content={`https://${Astro.url.host}${image}`}
+        />
 
         <!-- Favicon -->
         <link
