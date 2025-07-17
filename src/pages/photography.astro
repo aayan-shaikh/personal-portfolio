@@ -5,7 +5,7 @@ import CTA from "../components/CTA.astro";
 import { readdirSync } from "node:fs";
 
 const portfolioDir = "./public/Portfolio/images-avif";
-const imageExtensions = [".jpg", ".jpeg", ".png", ".avif"];
+const imageExtensions = [".avif"];
 
 const portfolioImages = readdirSync(portfolioDir)
     .filter((file) =>

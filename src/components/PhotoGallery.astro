@@ -25,8 +25,9 @@ const { images, title = "Photography Portfolio" } = Astro.props;
           <img
             src={image}
             alt={`Aayan's Photography work ${index + 1}`}
-            loading="lazy"
+            loading={index < 3 ? "eager" : "lazy"}
             class="gallery-image"
+            decoding="async"
           />
           <div class="image-overlay">
             <button class="view-btn" data-image={image}>
@@ -68,7 +69,6 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     padding: 2rem 0;
     max-width: 1200px;
     margin: 0 auto;
-    contain: layout style;
   }
 
   .gallery-header {
@@ -144,10 +144,11 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     overflow: hidden;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    transition:
+      transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+      box-shadow 0.3s ease;
     transform-origin: bottom left;
     will-change: transform;
-    contain: layout style paint;
 
     @media (max-width: 768px) {
       margin-bottom: 1rem;
@@ -186,7 +187,10 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     display: block;
     filter: blur(10px);
     opacity: 0.5;
-    transition: filter 0.5s ease, opacity 0.5s ease, transform 0.3s ease;
+    transition:
+      filter 0.5s ease,
+      opacity 0.5s ease,
+      transform 0.3s ease;
     will-change: filter, opacity, transform;
     transform: translateZ(0);
   }
@@ -263,7 +267,7 @@ const { images, title = "Photography Portfolio" } = Astro.props;
   }
 
   .lightbox-content {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
@@ -416,29 +420,54 @@ const { images, title = "Photography Portfolio" } = Astro.props;
       const galleryLoading = document.getElementById("gallery-loading");
       const images = document.querySelectorAll(".gallery-image");
       let loadedCount = 0;
+      let visibleCount = 0;
 
       const checkAllLoaded = () => {
-        if (loadedCount === images.length) {
+        if (visibleCount >= 3 || loadedCount === images.length) {
           galleryLoading.style.display = "none";
           galleryGrid.style.opacity = "1";
         }
       };
 
-      images.forEach((img) => {
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            visibleCount++;
+            checkAllLoaded();
+            imageObserver.unobserve(img);
+          }
+        });
+      }, { rootMargin: '50px' });
+
+      images.forEach((img, index) => {
+        // Set up onload for all images
         if (img.complete) {
-          img.classList.add('loaded');
+          img.classList.add("loaded");
           loadedCount++;
+          if (index < 3) visibleCount++;
         } else {
           img.onload = () => {
-            img.classList.add('loaded');
+            img.classList.add("loaded");
             loadedCount++;
-            checkAllLoaded();
+            if (index < 3) {
+              visibleCount++;
+              checkAllLoaded();
+            }
           };
           img.onerror = () => {
-            img.classList.add('loaded');
+            img.classList.add("loaded");
             loadedCount++;
-            checkAllLoaded();
+            if (index < 3) {
+              visibleCount++;
+              checkAllLoaded();
+            }
           };
+        }
+        
+        // Observe lazy-loaded images
+        if (index >= 3) {
+          imageObserver.observe(img);
         }
       });
 

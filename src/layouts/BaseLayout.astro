@@ -1,5 +1,20 @@
 ---
 import "../sass/index.scss";
+
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+    canonicalURL?: string;
+}
+
+const {
+    title = "Aayan Shaikh | Personal Portfolio Website",
+    description = "Aayan Shaikh's portfolio showcasing photography, DJ work, and programming projects. International Award Winning DJ 3+ Countries.",
+    image = "/social-img.png",
+    canonicalURL = Astro.url.href,
+} = Astro.props;
+
 const navLinks = [
     { name: "Home", link: "/" },
     // { name: "Resume", link: "/resume" },
@@ -9,13 +24,59 @@ const navLinks = [
     { name: "Programming", link: "/programming" },
 ];
 
-const currentPath = Astro.url.pathname;
+function normalizePath(path) {
+    return path === "/" ? "/" : path.replace(/\/+$/, "");
+}
+
+const currentPath = normalizePath(Astro.url.pathname);
 ---
 
 <html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="author" content="Aayan Shaikh" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url.href} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url.href} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +85,28 @@ const currentPath = Astro.url.pathname;
             rel="stylesheet"
         />
         <!-- FONTS END -->
-        <title>Aayan's Portfolio</title>
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Aayan Shaikh",
+                "url": "https://aayanshaikh.com",
+                "image": "https://aayanshaikh.com/Aayan 1 Compressed copy.jpg",
+                "sameAs": [
+                    "https://github.com/aayan-shaikh",
+                    "https://linkedin.com/in/aayan-shaikh-6b292118b",
+                    "https://instagram.com/aayanshaikhofficial"
+                ],
+                "jobTitle": "Product Executive & Developer",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Aayan Shaikh Photography"
+                }
+            }
+        </script>
+
         <slot name="head" />
     </head>
     <body>
@@ -36,7 +118,11 @@ const currentPath = Astro.url.pathname;
                         navLinks.map((link) => (
                             <li>
                                 <a
-                                    class={`nav-link ${currentPath === link.link ? "active" : ""}`}
+                                    class={`nav-link ${
+                                        currentPath === normalizePath(link.link)
+                                            ? "active"
+                                            : ""
+                                    }`}
                                     href={link.link}
                                 >
                                     {link.name}
