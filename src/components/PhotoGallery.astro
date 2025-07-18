@@ -125,7 +125,7 @@ const { images, title = "Photography Portfolio" } = Astro.props;
     transition: opacity 0.5s ease;
 
     @media (max-width: 768px) {
-      columns: 2;
+      columns: 3;
       column-gap: 1rem;
     }
 
@@ -429,16 +429,19 @@ const { images, title = "Photography Portfolio" } = Astro.props;
         }
       };
 
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            visibleCount++;
-            checkAllLoaded();
-            imageObserver.unobserve(img);
-          }
-        });
-      }, { rootMargin: '50px' });
+      const imageObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              visibleCount++;
+              checkAllLoaded();
+              imageObserver.unobserve(img);
+            }
+          });
+        },
+        { rootMargin: "50px" },
+      );
 
       images.forEach((img, index) => {
         // Set up onload for all images
@@ -464,7 +467,7 @@ const { images, title = "Photography Portfolio" } = Astro.props;
             }
           };
         }
-        
+
         // Observe lazy-loaded images
         if (index >= 3) {
           imageObserver.observe(img);

@@ -4,14 +4,14 @@ import PhotoGallery from "../components/PhotoGallery.astro";
 import CTA from "../components/CTA.astro";
 import { readdirSync } from "node:fs";
 
-const portfolioDir = "./public/Portfolio/images-avif";
+const portfolioDir = "./public/compressed/images-avif";
 const imageExtensions = [".avif"];
 
 const portfolioImages = readdirSync(portfolioDir)
     .filter((file) =>
         imageExtensions.some((ext) => file.toLowerCase().endsWith(ext)),
     )
-    .map((file) => `/Portfolio/images-avif/${file}`);
+    .map((file) => `/compressed/images-avif/${file}`);
 ---
 
 <BaseLayout>
