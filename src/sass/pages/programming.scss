@@ -3,6 +3,18 @@
 
 // Programming-specific styles only
 
+.portfolio-links {
+    h3 {
+        margin: 1rem auto;
+    }
+
+    button {
+        background: $accent;
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
 // === GITHUB SECTION ===
 .github-stats {
     display: flex;
