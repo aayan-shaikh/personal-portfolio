@@ -2,6 +2,12 @@
 
 // Photography-specific styles only
 
+.page-container {
+
+    max-width: 90ch;
+    margin: auto;
+}
+
 .photo-gallery {
     // outline: 10px solid lime;
     padding-top: 0 !important;
@@ -114,4 +120,3 @@
         }
     }
 }
-
