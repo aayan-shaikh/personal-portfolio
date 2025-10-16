@@ -1,0 +1,122 @@
+@use "../variables/" as *;
+
+// Photography-specific styles only
+
+.page-container {
+
+    max-width: 90ch;
+    margin: auto;
+}
+
+.photo-gallery {
+    // outline: 10px solid lime;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+// === PHILOSOPHY SECTION ===
+.philosophy-card {
+    background: linear-gradient(135deg, rgba($accent, 0.1), rgba($primary, 0.05));
+    padding: 2rem;
+    border-left: 4px solid $accent;
+    text-align: left;
+
+    p {
+        margin-bottom: 1rem;
+        font-style: italic;
+
+        &:first-child {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $primary;
+        }
+    }
+}
+
+
+// === SERVICES SECTION ===
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: rgba($primary, 0.03);
+    padding: 2rem;
+    text-align: left;
+    border: 1px solid rgba($primary, 0.1);
+    transition: all 0.3s ease;
+
+    @include paper-card($curl: true, $fold: false, $bleed: true, $texture: true);
+    @include realistic-shadow(2);
+
+    &:hover {
+        @include realistic-shadow(4);
+        border-color: rgba($primary, 0.2);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: $primary;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    p {
+        margin: 0;
+        color: lighten($primary, 10%);
+    }
+}
+
+// === EXPERIENCE SECTION ===
+
+.experience-cards {
+    display: grid;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: rgba($accent, 0.05);
+    padding: 2rem;
+    border-left: 4px solid $primary;
+    @include paper-texture;
+    @include paper-crease('light');
+
+    h3 {
+        color: $primary;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .role {
+        color: lighten($primary, 20%);
+        font-style: italic;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &:before {
+            content: '📷';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+$title-font: "Satoshi";
+$body-font: "Figtree";
+$mono-font: "Red Hat Mono";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $title-font, sans-serif;
+    font-size: 44px;
+}
+
+p {
+    font-family: $body-font, sans-serif;
+    font-size: 16px;
+}
+
+a {
+    letter-spacing: -0.02rem;
+    font-size: 14px;
+
+    font-family: $mono-font, monospace;
+}

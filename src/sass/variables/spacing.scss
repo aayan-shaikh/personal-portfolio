@@ -1,0 +1,18 @@
+// Consistent spacing system
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 1rem;     // 16px
+$spacing-md: 1.5rem;   // 24px
+$spacing-lg: 2rem;     // 32px
+$spacing-xl: 3rem;     // 48px
+$spacing-2xl: 4rem;    // 64px
+
+// Page layout spacing
+$page-padding: $spacing-lg;
+$section-gap: $spacing-xl;
+$header-gap: $spacing-md;
+$content-gap: $spacing-lg;
+
+// Responsive breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;

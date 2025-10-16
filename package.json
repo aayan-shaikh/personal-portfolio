@@ -1,0 +1,26 @@
+{
+  "name": "personal-portfolio",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev  --host",
+    "build": "astro build",
+    "preview": "astro preview --host"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "astro": "^5.10.2",
+    "chalk": "^5.4.1",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.7.0",
+    "path": "^0.12.7",
+    "sass": "^1.89.2",
+    "sharp": "^0.34.3"
+  }
+}

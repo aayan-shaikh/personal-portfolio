@@ -1,0 +1,173 @@
+@use "colours" as *;
+
+// Paper texture background
+@mixin paper-texture {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba($primary, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba($primary, 0.01) 1px, transparent 1px);
+  background-size: 30px 30px, 50px 50px;
+}
+
+// Paper curl effect
+@mixin paper-curl($corner: 'bottom-right', $intensity: 1){
+position: relative;
+transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+@if $corner =='bottom-right' {
+  transform-origin: bottom left;
+}
+
+@else if $corner =='bottom-left' {
+  transform-origin: bottom right;
+}
+
+@else if $corner =='top-right' {
+  transform-origin: top left;
+}
+
+@else {
+  transform-origin: top right;
+}
+
+&:hover {
+  transform: translateY(-#{2px * $intensity}) rotate(#{0.5deg * $intensity});
+}
+}
+
+// Paper fold lines
+@mixin paper-fold($direction: 'vertical') {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    @if $direction =='vertical' {
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom,
+          transparent,
+          rgba($primary, 0.1) 20%,
+          rgba($primary, 0.1) 80%,
+          transparent);
+    }
+
+    @else {
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(to right,
+          transparent,
+          rgba($primary, 0.1) 20%,
+          rgba($primary, 0.1) 80%,
+          transparent);
+    }
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Ink bleed effect
+@mixin ink-bleed($color: $primary) {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba($color, 0.05) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    width: 200%;
+    height: 200%;
+  }
+}
+
+// Torn edges
+@mixin torn-edge($side: 'top') {}
+
+// Crease effects
+@mixin paper-crease($type: 'light') {
+  @if $type =='light' {
+    box-shadow: inset 0 1px 0 rgba($primary, 0.05);
+  }
+
+  @else if $type =='medium' {
+    box-shadow:
+      inset 0 1px 0 rgba($primary, 0.08),
+      inset 0 -1px 0 rgba($primary, 0.03);
+  }
+
+  @else {
+    box-shadow:
+      inset 2px 0 4px rgba($primary, 0.06),
+      inset -2px 0 4px rgba($primary, 0.06),
+      inset 0 2px 4px rgba($primary, 0.04);
+  }
+}
+
+// Combined paper card effect
+@mixin paper-card($curl: true, $fold: false, $bleed: false, $texture: true) {
+  @if $texture {
+    @include paper-texture;
+  }
+
+  @if $curl {
+    @include paper-curl;
+  }
+
+  @if $fold {
+    @include paper-fold;
+  }
+
+  @if $bleed {
+    @include ink-bleed;
+  }
+
+  @include paper-crease('light');
+}
+
+// Typewriter text effect
+@mixin typewriter-text {
+  // font-family: 'Red Hat Mono', monospace;
+  // font-weight: 500;
+  // color: $primary;
+  // font-style: normal;
+}
+
+@keyframes typewriter {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// Ink smudge text effect
+@mixin ink-smudge {}

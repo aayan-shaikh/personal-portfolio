@@ -1,0 +1,107 @@
+@use 'base' as *;
+@use 'components' as *;
+@use 'pages' as *;
+@use 'variables' as *;
+
+// === GLOBAL LAYOUT ===
+body {
+    border: 1rem solid $accent;
+    margin-inline: auto;
+    background: $accent;
+
+    @media (min-width: 767px) {
+        max-width: 1400ch;
+
+    }
+}
+
+.page-container {
+
+    max-width: 90ch;
+    margin: auto;
+}
+
+
+.outline-wrapper {
+    border: 1px solid $primary;
+    background: $secondary;
+    padding: 0 0 4rem 0;
+}
+
+// === GLOBAL LINKS ===
+a {
+    color: inherit;
+
+    &:hover {
+        font-style: italic;
+    }
+}
+
+.nav-link {
+    color: $secondary;
+    text-decoration: none;
+    font-size: 16px;
+
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: $secondary;
+    }
+}
+
+// === NAVIGATION ===
+nav {
+    background-color: $primary;
+    padding: 1rem 1.5rem;
+    // max-width: 100ch;
+
+    margin: auto;
+
+    ul {
+        max-width: 100ch;
+        margin: auto;
+
+        @media (min-width: 767px) {
+            text-align: center;
+
+        }
+
+        padding: 0;
+    }
+
+    li {
+
+        margin-right: 10px;
+        list-style: none;
+        line-height: 0.5;
+        display: inline-block;
+
+        &:hover,
+        .active {
+            font-style: italic;
+            text-decoration: underline;
+        }
+    }
+}
+
+.nav-title {
+    // font-family: $title-font;
+    font-size: 3rem;
+    min-width: fit-content;
+    display: inline;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: $secondary;
+    margin: auto;
+
+    @media (min-width: 767px) {
+        text-align: center;
+        display: inherit;
+    }
+
+    &:hover {
+        color: $secondary;
+    }
+}
