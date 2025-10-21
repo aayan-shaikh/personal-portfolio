@@ -8,38 +8,41 @@ const portfolioDir = "./public/compressed/images-avif";
 const imageExtensions = [".avif"];
 
 const portfolioImages = readdirSync(portfolioDir)
-    .filter((file) =>
-        imageExtensions.some((ext) => file.toLowerCase().endsWith(ext)),
-    )
-    .map((file) => `/compressed/images-avif/${file}`);
+  .filter((file) =>
+    imageExtensions.some((ext) => file.toLowerCase().endsWith(ext))
+  )
+  .map((file) => `/compressed/images-avif/${file}`);
 ---
 
-<BaseLayout>
-    <Fragment slot="head">
-        <meta charset="UTF-8" />
-        <meta
-            name="description"
-            content="Photography portfolio by Aayan Shaikh - Capturing moments, creating memories"
-        />
-    </Fragment>
-    <div class="page-container">
-        <header class="page-header">
-            <h1>Photography</h1>
-            <span class="page-subtitle">6 years of experience</span>
-        </header>
+<BaseLayout
+  title="Aayan Shaikh's Photography Portfolio | aayanshaikh.com"
+  description="Photography portfolio by Aayan Shaikh - Capturing moments, creating memories"
+>
+  <Fragment slot="head">
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Photography portfolio by Aayan Shaikh - Capturing moments, creating memories"
+    />
+  </Fragment>
+  <div class="page-container">
+    <header class="page-header">
+      <h1>Photography</h1>
+      <span class="page-subtitle">6 years of experience</span>
+    </header>
 
-        <div class="content-section">
-            <p>
-                As the founder of <strong>Aayan Shaikh Photography</strong>,
-                I've led a team of photographers, videographers, and editors on
-                everything from in-flight helicopter shoots (yes, really) to
-                club nights, interiors, and branding campaigns.
-            </p>
+    <div class="content-section">
+      <p>
+        As the founder of <strong>Aayan Shaikh Photography</strong>, I've led a
+        team of photographers, videographers, and editors on everything from
+        in-flight helicopter shoots (yes, really) to club nights, interiors, and
+        branding campaigns.
+      </p>
 
-            <PhotoGallery images={portfolioImages} title="Featured Work" />
-            <CTA title="Ready to Create Something Epic?" />
-        </div>
+      <PhotoGallery images={portfolioImages} title="Featured Work" />
+      <CTA title="Ready to Create Something Epic?" />
     </div>
+  </div>
 </BaseLayout>
 
 <!-- ton {

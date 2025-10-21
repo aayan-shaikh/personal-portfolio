@@ -10,9 +10,10 @@ interface Props {
 const { title, subtitle, description } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
   <Fragment slot="head">
     <meta charset="UTF-8" />
+    {title && <meta name="title" content={title} />}
     {description && <meta name="description" content={description} />}
   </Fragment>
 
